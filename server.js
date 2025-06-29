@@ -129,8 +129,8 @@ app.post('/api/bookings', [
     const startHour = start.getHours();
     const endHour = end.getHours();
     const endMinutes = end.getMinutes();
-    if (startHour < 9 || (endHour > 20) || (endHour === 20 && endMinutes > 0)) {
-      return res.status(400).json({ error: 'Bookings are only allowed between 9 AM and 8 PM' });
+    if (startHour < 9 || (endHour > 22) || (endHour === 22 && endMinutes > 0)) {
+      return res.status(400).json({ error: 'Bookings are only allowed between 9 AM and 10 PM' });
     }
     const duration = (end - start) / (1000 * 60);
     if (duration < 30) {
