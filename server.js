@@ -4,7 +4,9 @@ const { body, validationResult } = require('express-validator');
 const { pool, initializeDatabase } = require('./database');
 const app = express();
 const PORT = process.env.PORT || 5000;
-app.use(cors());
+app.use(cors({
+  origin: ['https://meeting.arkagme.biz','http://localhost:5173'] 
+}));
 app.use(express.json());
 
 initializeDatabase();
